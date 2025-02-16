@@ -6,9 +6,9 @@ use super::license::License;
 use crate::global_value;
 
 // Limits for free users
-pub const DEFAULT_USERS_LIMIT: u32 = 5;
-pub const DEFAULT_DEVICES_LIMIT: u32 = 10;
-pub const DEFAULT_LOCATIONS_LIMIT: u32 = 1;
+pub const DEFAULT_USERS_LIMIT: u32 = 50000;
+pub const DEFAULT_DEVICES_LIMIT: u32 = 100000;
+pub const DEFAULT_LOCATIONS_LIMIT: u32 = 1000;
 
 #[derive(Debug)]
 #[cfg_attr(test, derive(Clone))]
