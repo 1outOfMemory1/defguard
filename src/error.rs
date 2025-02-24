@@ -55,6 +55,8 @@ pub enum WebError {
     ServerConfigMissing,
     #[error("License error: {0}")]
     LicenseError(#[from] LicenseError),
+    #[error("Failed to get client IP address")]
+    ClientIpError,
 }
 
 impl From<tonic::Status> for WebError {
@@ -76,6 +78,7 @@ impl From<LdapError> for WebError {
             LdapError::Ldap(msg) => Self::Ldap(msg),
             LdapError::MissingSettings => Self::Ldap("LDAP settings are missing".into()),
             LdapError::Database => Self::Ldap("Database problem".into()),
+            LdapError::TooManyObjects => Self::Ldap(LdapError::TooManyObjects.to_string()),
         }
     }
 }
